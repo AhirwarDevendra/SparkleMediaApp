@@ -110,7 +110,7 @@ angular.module('sparkle.controllers', [])
         It Loads Until EventService Return Result
     */
     $ionicLoading.show({
-        template: '<img src="../img/sparkleLoad.gif"><br>Loading Awesomeness',
+        template: '<img src="img/sparkleLoad.gif"><br>Loading Awesomeness',
         showBackdrop: true
     });
     
@@ -144,7 +144,7 @@ angular.module('sparkle.controllers', [])
         Run Spinner Until Server Return Result From Server
     */
     $ionicLoading.show({
-        template: '<img src="../img/sparkleLoad.gif"><br>Loading Your Videos',
+        template: '<img src="img/sparkleLoad.gif"><br>Loading Your Videos',
         showBackdrop: true
     });
 
@@ -338,7 +338,7 @@ angular.module('sparkle.controllers', [])
         Run Spinner Until Service Return Result From Server
     */    
     $ionicLoading.show({
-        template: '<img src="../img/sparkleLoad.gif"><br>Wait a Movement',
+        template: '<img src="img/sparkleLoad.gif"><br>Wait a Movement',
         showBackdrop: true
     }); 
     
