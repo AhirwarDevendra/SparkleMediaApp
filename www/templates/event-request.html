@@ -1,0 +1,47 @@
+<ion-view view-title="Request For an Event">
+  <ion-nav-buttons side="right">
+    <button menu-toggle="right" class="button button-icon icon ion-navicon"></button>
+  </ion-nav-buttons>
+    <ion-content padding="true" class="has-header">
+    	<form name="faleComigoForm" id="event-form" novalidate form-manager autocomplete="off"><!--  -->
+            <p class="formErrors" ng-show="ShowError">** All Fields are Manditory **</p>
+    		<label class="item item-input">
+			  <span class="input-label">Name</span>
+			  <input type="text" id="requestInput.eventRequestName" ng-model="requestInput.eventRequestName" required>
+			</label>
+            
+            <label class="item item-input">
+			  <span class="input-label">Mobile No</span>
+			  <input type="email" ng-model="requestInput.eventRequestMobile" id="requestInput.eventRequestMobile" required>
+			</label>
+            <label class="item item-input">
+			  <span class="input-label">Email Address</span>
+			  <input type="email" ng-model="requestInput.eventRequestEmail" id="requestInput.eventRequestEmail" required>
+			</label>
+            <label class="item item-input item-select">
+			  <span class="input-label">Event Type</span>
+			     <select ng-model="requestInput.eventRequestEvent" id="requestInput.eventRequestEvent">
+                     <option value="" selected>Select Your Event</option>
+                     <option ng-repeat="x in events" value="{{ x.category }}">
+		                          {{ x.category }}
+		              </option>
+                </select>
+			</label>
+    		<label class="item item-input">
+    			<textarea type="text" placeholder="Notes About Events"rows="5" required="" ng-model="requestInput.eventRequestMessage"></textarea>
+    		</label>
+            <label class="item item-input item-select">
+			  <span class="input-label">Location</span>
+			  <select ng-model="requestInput.eventRequestLocation">
+                     <option value="Mumbai">Mumbai</option>
+                     <option value="Thane">Thane</option>
+                </select>
+			</label>
+    		<button ng-click="addData()" class="button button-full" id="event-btn" >
+			   Request an Event
+			</button> 
+    	</form>
+        
+       
+    </ion-content>
+</ion-view>

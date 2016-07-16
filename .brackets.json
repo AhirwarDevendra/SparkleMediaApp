@@ -1,0 +1,6 @@
+{
+    "jscodehints.detectedExclusions": [
+        "D:/Project/sparkle/platforms/ios/platform_www/cordova.js",
+        "D:/Project/sparkle/platforms/ios/platform_www/cordova_plugins.js"
+    ]
+}

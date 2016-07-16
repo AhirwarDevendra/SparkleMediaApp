@@ -1,0 +1,18 @@
+<ion-view view-title="Sparkle Media and Entertainment">
+    <ion-nav-buttons side="right">
+        <button class="button button-icon icon ion-ios-compose" ng-click="requestEvent()"></button>
+    <button menu-toggle="right" class="button button-icon icon ion-navicon"></button>
+  </ion-nav-buttons>
+    <ion-content class="has-header">
+        <ion-list >
+            <ion-item class="item-remove-animate item-avatar item-icon-right chat-item" ng-repeat="event in events" type="item-text-wrap" href="#/app/event/{{event.category_id}}">
+            <img ng-src="{{event.face}}">
+            <h2>{{event.category}}</h2>
+            <p>{{event.punchLine}}</p>
+            <i class="icon ion-chevron-right icon-accessory"></i>
+
+            </ion-item>
+        </ion-list>
+
+    </ion-content>
+</ion-view>

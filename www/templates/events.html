@@ -1,0 +1,55 @@
+<ion-view view-title="Sparkle Media and Entertainment">
+  <ion-nav-buttons side="right">
+    <button class="button button-icon icon ion-ios-compose" ng-click="requestEvent()"></button>
+    <button menu-toggle="right" class="button button-icon icon ion-navicon"></button>
+  </ion-nav-buttons>
+  <ion-tabs class = "tabs-icon-only tabs-positive" >
+
+    
+   <ion-tab title = "Video" icon-on = "ion-videocamera" 
+      icon-off = "ion-videocamera" >
+            <ion-view>
+                <ion-content>
+                    
+                    <div ng-show="NoDataFoundVideo" id="no-data">
+                        <center><i class="icon ion-heart-broken"></i>
+                        <h3>Sorry <br>Your Wish is Not Completed</h3></center>
+                    </div>
+                    <ion-list>
+                        <ion-item class="item item-thumbnail-left item-icon-right video-item" ng-repeat="video in videos" ng-click="showVideo({{video.id}})">
+                            <img src="{{video.face}}" >
+                            <h3 id="video-title">{{video.title}}</h3>
+                            <p>{{video.description}}</p>
+                            <i class="icon ion-play"></i>
+                        </ion-item>
+                        
+                    </ion-list>
+                </ion-content>
+            </ion-view>
+    </ion-tab>
+
+   <ion-tab title = "Image" icon-on = "ion-image" 
+      icon-off = "ion-image">
+        <ion-view>
+            <ion-content ng-init="loadImages()">
+                <div ng-show="NoDataFoundImage" id="no-data">
+                        <center><i class="icon ion-heart-broken"></i>
+                        <h3>Sorry <br>Your Wish is Not Completed</h3></center>
+                    </div>
+                <div class="row" style="flex-wrap: wrap">
+                                    
+                    <div class="animated flipInY col col-50" ng-repeat="image in images">
+
+                         <img src="{{image.src}}" style="width:100%; height:150px;" class="image-list-thumb" ng-click="showImages({{image.id}})"/>
+                        
+                    </div>                   
+               </div>
+                            
+            </ion-content>
+       </ion-view>
+    </ion-tab>
+
+   
+
+</ion-tabs>
+</ion-view>
