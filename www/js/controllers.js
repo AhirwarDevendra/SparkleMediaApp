@@ -244,12 +244,15 @@ angular.module('sparkle.controllers', [])
         $scope.showModal('templates/video-popover.html');
     }
     
-    $ionicPlatform.registerBackButtonAction(function(){
+    $scope.$on('modal.removed', function() {
+    // Execute action
         $ionicPopup.alert({
                       title: 'Sorry',
                       content: 'BackButton Pressed'
                     });
-    });
+  });
+        
+  
     
     
   
