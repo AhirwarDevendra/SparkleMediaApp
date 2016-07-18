@@ -133,7 +133,7 @@ angular.module('sparkle.controllers', [])
 
 }])
 
-.controller('EventCtrl',['$scope','$location', '$anchorScroll','$timeout','$ionicModal','$ionicPlatform','$ionicHistory','$http','$stateParams','EventVideoService','EventImageService','$ionicLoading','$state',function($scope,$location, $anchorScroll,$timeout,$ionicModal,$ionicPlatform,$ionicHistory,$http,$stateParams,EventVideoService,EventImageService,$ionicLoading,$state){
+.controller('EventCtrl',['$scope','$location', '$anchorScroll','$timeout','$ionicModal','$ionicPlatform','$ionicHistory','$http','$stateParams','EventVideoService','EventImageService','$ionicLoading','$state','$ionicPopup',function($scope,$location, $anchorScroll,$timeout,$ionicModal,$ionicPlatform,$ionicHistory,$http,$stateParams,EventVideoService,EventImageService,$ionicLoading,$state,$ionicPopup){
     
     /*
         Move to requestEvent State On CLick of Compose Icon
@@ -175,8 +175,13 @@ angular.module('sparkle.controllers', [])
         }
     
     },function myError(response) {
-        console.log("Not Connected");
-        ionic.Platform.exitApp();
+        $ionicLoading.hide();
+        $ionicPopup.alert({
+                      title: 'Sorry',
+                      content: 'No Internet Connection'
+                    }).then(function(res) {
+                      ionic.Platform.exitApp();
+                    });
     });
     
     
@@ -363,9 +368,13 @@ angular.module('sparkle.controllers', [])
         console.log($scope.events);
         $ionicLoading.hide();
     },function myError(response) {
-        console.log("Not Connected");
-        $state.go('no-network');
         $ionicLoading.hide();
+        $ionicPopup.alert({
+                      title: 'Sorry',
+                      content: 'No Internet Connection'
+                    }).then(function(res) {
+                      ionic.Platform.exitApp();
+                    });
     });
     
     $scope.requestInput = 
