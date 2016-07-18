@@ -10,6 +10,16 @@ angular.module('sparkle.controllers', [])
                 },1800);
 }])
 
+.controller('NoInternetCtrl', ['$scope','$state',function($scope, $state) {
+    console.log('in No Internet called');
+    
+    $scope.refresh = function()
+    {
+        console.log("Refresh Function");
+        $state.go('app.home');
+    }
+    
+}])
 
 /*
     Main Controller
@@ -75,27 +85,11 @@ angular.module('sparkle.controllers', [])
     });
     };
     
-    $scope.splash =function()
-    {
-        console.log("Splash");
-        $state.go('app.splashscreen');
-    }
     
 }])
 
 .controller('HomeCtrl',['$scope','$location', '$anchorScroll','$timeout','$http','EventService','$ionicLoading','$state','$ionicHistory',function($scope,$location, $anchorScroll,$timeout,$http,EventService,$ionicLoading,$state,$ionicHistory){
     
-    
-    /*if(window.Connection)
-    {
-        if(navigator.connection.type == Connection.NONE)
-            {
-                console.log("Not COnnected");
-            }
-        else{
-            console.log("Connected");
-        }
-    }
     
     /*
         Move to requestEvent State On CLick of Compose Icon
@@ -125,6 +119,9 @@ angular.module('sparkle.controllers', [])
         $scope.events = result.data;
         console.log($scope.events);
         $ionicLoading.hide();
+    },function myError(response) {
+        console.log("Not Connected");
+        ionic.Platform.exitApp();
     });
     
     
@@ -172,6 +169,9 @@ angular.module('sparkle.controllers', [])
             $ionicLoading.hide();
         }
     
+    },function myError(response) {
+        console.log("Not Connected");
+        ionic.Platform.exitApp();
     });
     
     
@@ -257,7 +257,7 @@ angular.module('sparkle.controllers', [])
     console.log('search called');
 }])
 
-.controller('FeedbackCtrl', ['$scope','$state',function($scope,$state) {
+.controller('FeedbackCtrl', ['$scope','$state','$ionicLoading','$ionicPopup','$http',function($scope,$state,$ionicLoading,$ionicPopup,$http) {
     
     $scope.ShowError = false;
     
@@ -289,7 +289,10 @@ angular.module('sparkle.controllers', [])
         else
         {
             $scope.ShowError = false;
-            console.log($scope.feedback.VisitorName+" "+$scope.feedback.VisitorEmail+" "+$scope.feedback.VisitorMobile+" "+$scope.feedback.VisitorLocation+" "+$scope.feedback.VisitorDesc);$ionicLoading.show(
+            console.log($scope.feedback.VisitorName+" "+$scope.feedback.VisitorEmail+" "+$scope.feedback.VisitorMobile+" "+$scope.feedback.VisitorLocation+" "+$scope.feedback.VisitorDesc);
+            
+            
+            $ionicLoading.show(
                 { template: 'Getting Your Request .... ', duration: 2000}
             );
     
@@ -297,20 +300,25 @@ angular.module('sparkle.controllers', [])
                 
                 data:
                 {
-                    shareTitle:$scope.message.title,
-                    shareDesc:$scope.message.desc,
-                    location:$scope.message.location,
-                    randomvar:'random data'
+                    feedbackName:$scope.feedback.VisitorName,
+                    feedbackEmail:$scope.feedback.VisitorEmail,
+                    feedbackMobile:$scope.feedback.VisitorMobile,
+                    feedbackMessage:$scope.feedback.VisitorDesc,
+                    feedbackLocation:$scope.feedback.VisitorLocation,
+                    AMDflag:"0"
                 },
-                url:"http://shares.890m.com/set/addshare.php",
+                url:'http://dreamwood.in/SparkleMedia/php/set/setFeedback.php',
                 method:'POST',
                 success:function(data)
                 {
                     $ionicPopup.alert({
                       title: 'Thanks&nbsp;<span class="ion-ios-checkmark" style="color:green"></span>',
-                      content: 'We Got Your Our Sparkle Team Will COntact You Very Soon!!!'
+                      content: 'Thank You For Your Valuable Feedback!!!'
                     }).then(function(res) {
                       console.log('Thanks');
+                    console.log(data);
+                        
+                        $state.go('app.home');
                     });
                 },
                 error:function(errr){
@@ -329,7 +337,7 @@ angular.module('sparkle.controllers', [])
     
 }])
 
-.controller('RequestEventCtrl', ['$scope','$ionicLoading','$ionicPopup','EventService',function($scope,$ionicLoading,$ionicPopup,EventService) {
+.controller('RequestEventCtrl', ['$scope','$ionicLoading','$ionicPopup','$state','EventService',function($scope,$ionicLoading,$ionicPopup,$state,EventService) {
     
     $scope.ShowError = false;
     console.log('Request Event called');
@@ -348,6 +356,10 @@ angular.module('sparkle.controllers', [])
     EventService.all().then(function(result){
         $scope.events = result.data;
         console.log($scope.events);
+        $ionicLoading.hide();
+    },function myError(response) {
+        console.log("Not Connected");
+        $state.go('no-network');
         $ionicLoading.hide();
     });
     
@@ -372,29 +384,36 @@ angular.module('sparkle.controllers', [])
         }
         else
         {
+            console.log($scope.requestInput.eventRequestName+$scope.requestInput.eventRequestMobile+$scope.requestInput.eventRequestEmail);
             $scope.ShowError = false;   
-            $ionicLoading.show(
-                { template: 'Getting Your Request .... ', duration: 2000}
-            );
+            $ionicLoading.show({
+        template: '<img src="img/sparkleLoad.gif"><br>Wait a Movement',
+        showBackdrop: true
+    }); 
     
             $.ajax({
                 
                 data:
                 {
-                    shareTitle:$scope.message.title,
-                    shareDesc:$scope.message.desc,
-                    location:$scope.message.location,
-                    randomvar:'random data'
+                    requesterName:$scope.requestInput.eventRequestName,
+                    requesterEmail:$scope.requestInput.eventRequestEmail,
+                    requesterMobile:$scope.requestInput.eventRequestMobile,
+                    requesterMessage:$scope.requestInput.eventRequestMessage,
+                    requesterLocation:$scope.requestInput.eventRequestLocation,
+                    requestEvent:$scope.requestInput.eventRequestEvent,
+                    AMDflag:"1"
                 },
-                url:"http://shares.890m.com/set/addshare.php",
+                url:'http://dreamwood.in/SparkleMedia/php/set/setRequestEvent.php',
                 method:'POST',
                 success:function(data)
                 {
                     $ionicPopup.alert({
                       title: 'Thanks&nbsp;<span class="ion-ios-checkmark" style="color:green"></span>',
-                      content: 'We Got Your Our Sparkle Team Will COntact You Very Soon!!!'
+                      content: 'Submitted Your Request Sparkle Media Team Will Be In Touch With You Very Soon!!!'
                     }).then(function(res) {
                       console.log('Thanks');
+                        console.log(data);
+                        $state.go('app.home');
                     });
                 },
                 error:function(errr){

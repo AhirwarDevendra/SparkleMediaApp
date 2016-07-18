@@ -11,7 +11,7 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('sparkle', ['ionic', 'sparkle.controllers','sparkle.services'])
+angular.module('sparkle', ['ionic','ngCordova', 'sparkle.controllers','sparkle.services'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -28,6 +28,13 @@ angular.module('sparkle', ['ionic', 'sparkle.controllers','sparkle.services'])
     if(window.StatusBar) {
       StatusBar.styleDefault();
     }
+      
+    /*$ionicPlatform.registerBackButtonAction(function() {
+        if ($state.current.name == "app.home") {
+            navigator.app.exitApp();
+        }
+    }, 100);
+    */  
   });
 })
 
@@ -54,7 +61,11 @@ angular.module('sparkle', ['ionic', 'sparkle.controllers','sparkle.services'])
       controller: 'SparkleCtrl'
     })
 
-  
+  .state('no-network',{
+    url:'/no-network',
+    templateUrl:'templates/no-internet.html',
+    controller:'NoInternetCtrl'
+  })
     .state('app.feedback', {
       url: "/feedback",
       views: {

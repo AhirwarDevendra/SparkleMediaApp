@@ -5,7 +5,7 @@ angular.module('sparkle.services', [])
       return {
         all: function() {
           // Return promise (async callback)
-          return $http.get("http://dreamwood.in/getDataFromServer.php?getType=GetEventList");
+          return $http.get("http://dreamwood.in/SparkleMedia/php/get/getDataFromServer.php?getType=GetEventList");
             
         }  
       };
@@ -19,7 +19,7 @@ angular.module('sparkle.services', [])
       return {
         all: function($EventID) {
           // Return promise (async callback)
-          return $http.get("http://dreamwood.in/getDataFromServer.php?getType=GetVideos&eventID="+$EventID);
+          return $http.get("http://dreamwood.in/SparkleMedia/php/get/getDataFromServer.php?getType=GetVideos&eventID="+$EventID);
             
         }
         

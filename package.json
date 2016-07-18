@@ -23,7 +23,8 @@
     "ionic-plugin-keyboard",
     "cordova-plugin-network-information",
     "cordova-plugin-keyboard",
-    "org.apache.cordova.network-information"
+    "org.apache.cordova.network-information",
+    "cordova-plugin-geolocation"
   ],
   "cordovaPlatforms": [
     {

@@ -7,8 +7,8 @@
     date_default_timezone_set("Asia/Kolkata");
 
 
-    if($_POST['AMDflag'] == "0")
-    {
+    /*if($_POST['AMDflag'] == "0")
+    {*/
         $sql = "INSERT INTO `visitor_feedback`(`feedback_name`, `feedback_email`, `feedback_mobile`,`feedback_message`,`feedback_location`, `feedback_time`) VALUES (:userName,:userEmail,:userMobile,:userMessage,:userLoc,:userTime))";
 
         $stmt = $connection->prepare($sql);
@@ -18,7 +18,7 @@
         $mobile = $_POST['feedbackMobile'];
         $message = $_POST['feedbackMessage'];
         $location = $_POST['feedbackLocation'];
-        $dataTime = $_POST['feedbackDateTime'];
+        $dataTime = date("l jS \of F Y h:i:s A");
 
 
 
@@ -36,7 +36,7 @@
         else{
             echo 'failed';
         }
-    }
+    /*}
     if($_POST['AMDflag'] == "1")
     {
         $sql = "INSERT INTO `request_event`(`requester_name`, `requester_mobileno`, `requester_email`, `requester_message`,`requester_event`,`requester_location`, `requester_time`) VALUES (:userName,:userMobile,:userEmail,:userMessage,:userEvent,:userLoc,:userTime))";
@@ -68,6 +68,6 @@
         else{
             echo 'failed';
         }
-    }
+    }*/
     
 ?>	
