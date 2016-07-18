@@ -88,7 +88,7 @@ angular.module('sparkle.controllers', [])
     
 }])
 
-.controller('HomeCtrl',['$scope','$location', '$anchorScroll','$timeout','$http','EventService','$ionicLoading','$state','$ionicHistory',function($scope,$location, $anchorScroll,$timeout,$http,EventService,$ionicLoading,$state,$ionicHistory){
+.controller('HomeCtrl',['$scope','$location', '$anchorScroll','$timeout','$http','EventService','$ionicLoading','$state','$ionicHistory','$ionicPopup',function($scope,$location, $anchorScroll,$timeout,$http,EventService,$ionicLoading,$state,$ionicHistory,$ionicPopup){
     
     
     /*
@@ -120,6 +120,7 @@ angular.module('sparkle.controllers', [])
         console.log($scope.events);
         $ionicLoading.hide();
     },function myError(response) {
+        $ionicLoading.hide();
         $ionicPopup.alert({
                       title: 'Sorry',
                       content: 'No Internet Connection'
