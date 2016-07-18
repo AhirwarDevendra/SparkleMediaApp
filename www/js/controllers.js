@@ -245,13 +245,10 @@ angular.module('sparkle.controllers', [])
     }
     
     $ionicPlatform.registerBackButtonAction(function(){
-        $scope.modal.hide();
-		$scope.modal.remove();
-        
-        if($scope.clipSrc)
-            {
-                $scope.clipSrc = "";
-            }
+        $ionicPopup.alert({
+                      title: 'Sorry',
+                      content: 'BackButton Pressed'
+                    });
     });
     
     
