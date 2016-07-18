@@ -65,11 +65,7 @@ angular.module('sparkle', ['ionic','ngCordova', 'sparkle.controllers','sparkle.s
       controller: 'SparkleCtrl'
     })
 
-  .state('no-network',{
-    url:'/no-network',
-    templateUrl:'templates/no-internet.html',
-    controller:'NoInternetCtrl'
-  })
+  
     .state('app.feedback', {
       url: "/feedback",
       views: {

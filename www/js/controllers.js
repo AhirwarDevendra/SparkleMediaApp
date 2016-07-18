@@ -10,16 +10,6 @@ angular.module('sparkle.controllers', [])
                 },1800);
 }])
 
-.controller('NoInternetCtrl', ['$scope','$state',function($scope, $state) {
-    console.log('in No Internet called');
-    
-    $scope.refresh = function()
-    {
-        console.log("Refresh Function");
-        $state.go('app.home');
-    }
-    
-}])
 
 /*
     Main Controller
@@ -254,7 +244,15 @@ angular.module('sparkle.controllers', [])
         $scope.showModal('templates/video-popover.html');
     }
     
-    
+    $ionicPlatform.registerBackButtonAction(function(){
+        $scope.modal.hide();
+		$scope.modal.remove();
+        
+        if($scope.clipSrc)
+            {
+                $scope.clipSrc = "";
+            }
+    });
     
     
   
