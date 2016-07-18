@@ -120,13 +120,12 @@ angular.module('sparkle.controllers', [])
         console.log($scope.events);
         $ionicLoading.hide();
     },function myError(response) {
-        console.log("Not Connected");
         $ionicPopup.alert({
-                title: 'Sorry',
-                content: 'No Internet Connection!!!'
-              }.then(function(res) {
+                      title: 'Sorry',
+                      content: 'No Internet Connection'
+                    }).then(function(res) {
                       ionic.Platform.exitApp();
-              });
+                    });
     });
     
     
