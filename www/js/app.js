@@ -30,7 +30,7 @@ angular.module('sparkle', ['ionic','ngCordova', 'sparkle.controllers','sparkle.s
     }
       
     $ionicPlatform.registerBackButtonAction(function() {
-        if ($state.current.name == "app.home") {
+        if ($state.current.name == "app") {
             $ionicPopup.alert({
                 title: 'Done',
                 content: 'Thanks for sharing your comments!!!'
