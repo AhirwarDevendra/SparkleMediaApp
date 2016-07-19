@@ -11,7 +11,7 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('sparkle', ['ionic', 'sparkle.controllers','sparkle.services'])
+angular.module('sparkle', ['ionic','ngCordova', 'sparkle.controllers','sparkle.services'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -27,6 +27,20 @@ angular.module('sparkle', ['ionic', 'sparkle.controllers','sparkle.services'])
     }
     if(window.StatusBar) {
       StatusBar.styleDefault();
+    }
+      
+    if(window.Connection) {
+      if(navigator.connection.type == Connection.NONE) {
+        $ionicPopup.confirm({
+          title: 'No Internet Connection',
+          content: 'Sorry, no Internet connectivity detected. Please reconnect and try again.'
+        })
+        .then(function(result) {
+          if(!result) {
+            ionic.Platform.exitApp();
+          }
+        });
+      }
     }
   });
 })

@@ -1,6 +1,31 @@
 {
     "jscodehints.detectedExclusions": [
         "D:/Project/sparkle/platforms/ios/platform_www/cordova.js",
-        "D:/Project/sparkle/platforms/ios/platform_www/cordova_plugins.js"
+        "D:/Project/sparkle/platforms/ios/platform_www/cordova_plugins.js",
+        "D:/Project/sparkle/platforms/ios/www/cordova-js-src/exec.js",
+        "D:/Project/sparkle/platforms/ios/www/cordova-js-src/platform.js",
+        "D:/Project/sparkle/platforms/ios/www/js/app.js",
+        "D:/Project/sparkle/platforms/ios/www/js/controllers.js",
+        "D:/Project/sparkle/platforms/ios/www/js/services.js",
+        "D:/Project/sparkle/platforms/ios/www/lib/ionic/js/angular/angular-animate.js",
+        "D:/Project/sparkle/platforms/ios/www/lib/ionic/js/angular/angular-animate.min.js",
+        "D:/Project/sparkle/platforms/ios/www/lib/ionic/js/angular/angular-resource.js",
+        "D:/Project/sparkle/platforms/ios/www/lib/ionic/js/angular/angular-resource.min.js",
+        "D:/Project/sparkle/platforms/ios/www/lib/ionic/js/angular/angular-sanitize.js",
+        "D:/Project/sparkle/platforms/ios/www/lib/ionic/js/angular/angular-sanitize.min.js",
+        "D:/Project/sparkle/platforms/ios/www/lib/ionic/js/angular/angular.js",
+        "D:/Project/sparkle/platforms/ios/www/lib/ionic/js/angular/angular.min.js",
+        "D:/Project/sparkle/platforms/ios/www/lib/ionic/js/angular-ui/angular-ui-router.js",
+        "D:/Project/sparkle/platforms/ios/www/lib/ionic/js/angular-ui/angular-ui-router.min.js",
+        "D:/Project/sparkle/www/js/services.js",
+        "D:/Project/sparkle/gulpfile.js",
+        "D:/Project/sparkle/platforms/ios/www/lib/ionic/js/ionic.bundle.js",
+        "D:/Project/sparkle/platforms/ios/www/lib/ionic/js/ionic.bundle.min.js",
+        "D:/Project/sparkle/platforms/ios/platform_www/plugins/cordova-plugin-keyboard/www/keyboard.js",
+        "D:/Project/sparkle/platforms/ios/platform_www/plugins/cordova-plugin-network-information/www/Connection.js",
+        "D:/Project/sparkle/platforms/ios/platform_www/plugins/cordova-plugin-network-information/www/network.js",
+        "D:/Project/sparkle/platforms/ios/platform_www/plugins/cordova-plugin-splashscreen/www/splashscreen.js",
+        "D:/Project/sparkle/platforms/ios/platform_www/plugins/cordova-plugin-statusbar/www/statusbar.js",
+        "D:/Project/sparkle/platforms/ios/platform_www/plugins/ionic-plugin-keyboard/www/ios/keyboard.js"
     ]
 }

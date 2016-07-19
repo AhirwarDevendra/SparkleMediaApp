@@ -12,11 +12,11 @@
             
             <label class="item item-input">
 			  <span class="input-label">Mobile No</span>
-			  <input type="email" ng-model="requestInput.eventRequestMobile" id="requestInput.eventRequestMobile" required>
+			  <input type="text" ng-model="requestInput.eventRequestMobile" id="requestInput.eventRequestMobile" required>
 			</label>
             <label class="item item-input">
 			  <span class="input-label">Email Address</span>
-			  <input type="email" ng-model="requestInput.eventRequestEmail" id="requestInput.eventRequestEmail" required>
+			  <input type="text" ng-model="requestInput.eventRequestEmail" id="requestInput.eventRequestEmail" required>
 			</label>
             <label class="item item-input item-select">
 			  <span class="input-label">Event Type</span>
@@ -33,7 +33,7 @@
             <label class="item item-input item-select">
 			  <span class="input-label">Location</span>
 			  <select ng-model="requestInput.eventRequestLocation">
-                     <option value="Mumbai">Mumbai</option>
+                     <option value="Mumbai" selected>Mumbai</option>
                      <option value="Thane">Thane</option>
                 </select>
 			</label>
