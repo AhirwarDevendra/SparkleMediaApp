@@ -29,32 +29,10 @@ angular.module('sparkle', ['ionic','ngCordova', 'sparkle.controllers','sparkle.s
       StatusBar.styleDefault();
     }
       
-<<<<<<< HEAD
-    if(window.Connection) {
-      if(navigator.connection.type == Connection.NONE) {
-        $ionicPopup.confirm({
-          title: 'No Internet Connection',
-          content: 'Sorry, no Internet connectivity detected. Please reconnect and try again.'
-        })
-        .then(function(result) {
-          if(!result) {
-            ionic.Platform.exitApp();
-          }
-        });
-      }
-    }
-=======
-    $ionicPlatform.registerBackButtonAction(function() {
-        if ($state.current.name == "app") {
-            $ionicPopup.alert({
-                title: 'Done',
-                content: 'Thanks for sharing your comments!!!'
-              });
-            //navigator.app.exitApp();
-        }
-    }, 100);
+
+  
      
->>>>>>> e56919e1cff94ba3e3cfe7c20b5e34b28505e5dd
+
   });
 })
 

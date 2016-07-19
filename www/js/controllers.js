@@ -78,8 +78,8 @@ angular.module('sparkle.controllers', [])
     
 }])
 
-<<<<<<< HEAD
-.controller('HomeCtrl',['$scope','$location', '$anchorScroll','$timeout','$http','EventService','$ionicLoading','$state','$ionicHistory','$rootScope', '$cordovaNetwork',function($scope,$location, $anchorScroll,$timeout,$http,EventService,$ionicLoading,$state,$ionicHistory,$rootScope, $cordovaNetwork){
+
+.controller('HomeCtrl',['$scope','$location', '$anchorScroll','$timeout','$http','EventService','$ionicLoading','$state','$ionicHistory','$rootScope', '$cordovaNetwork','$ionicPopup',function($scope,$location, $anchorScroll,$timeout,$http,EventService,$ionicLoading,$state,$ionicHistory,$rootScope, $cordovaNetwork,$ionicPopup){
     
     
     
@@ -274,15 +274,7 @@ angular.module('sparkle.controllers', [])
     }
     
     
-<<<<<<< HEAD
 
-=======
- 
-        
-  
-    
-    
->>>>>>> e56919e1cff94ba3e3cfe7c20b5e34b28505e5dd
   
 }])
 
