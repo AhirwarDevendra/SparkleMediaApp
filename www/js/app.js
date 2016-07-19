@@ -13,7 +13,7 @@
 // 'starter.controllers' is found in controllers.js
 angular.module('sparkle', ['ionic','ngCordova', 'sparkle.controllers','sparkle.services'])
 
-.run(function($ionicPlatform) {
+.run(function($ionicPlatform,$ionicPopup) {
   $ionicPlatform.ready(function() {
     if(window.cordova && window.cordova.plugins.Keyboard) {
       // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
@@ -29,6 +29,7 @@ angular.module('sparkle', ['ionic','ngCordova', 'sparkle.controllers','sparkle.s
       StatusBar.styleDefault();
     }
       
+<<<<<<< HEAD
     if(window.Connection) {
       if(navigator.connection.type == Connection.NONE) {
         $ionicPopup.confirm({
@@ -42,6 +43,18 @@ angular.module('sparkle', ['ionic','ngCordova', 'sparkle.controllers','sparkle.s
         });
       }
     }
+=======
+    $ionicPlatform.registerBackButtonAction(function() {
+        if ($state.current.name == "app") {
+            $ionicPopup.alert({
+                title: 'Done',
+                content: 'Thanks for sharing your comments!!!'
+              });
+            //navigator.app.exitApp();
+        }
+    }, 100);
+     
+>>>>>>> e56919e1cff94ba3e3cfe7c20b5e34b28505e5dd
   });
 })
 

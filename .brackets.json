@@ -25,7 +25,11 @@
         "D:/Project/sparkle/platforms/ios/platform_www/plugins/cordova-plugin-network-information/www/Connection.js",
         "D:/Project/sparkle/platforms/ios/platform_www/plugins/cordova-plugin-network-information/www/network.js",
         "D:/Project/sparkle/platforms/ios/platform_www/plugins/cordova-plugin-splashscreen/www/splashscreen.js",
+<<<<<<< HEAD
         "D:/Project/sparkle/platforms/ios/platform_www/plugins/cordova-plugin-statusbar/www/statusbar.js",
         "D:/Project/sparkle/platforms/ios/platform_www/plugins/ionic-plugin-keyboard/www/ios/keyboard.js"
+=======
+        "D:/Project/sparkle/platforms/ios/platform_www/plugins/cordova-plugin-statusbar/www/statusbar.js"
+>>>>>>> e56919e1cff94ba3e3cfe7c20b5e34b28505e5dd
     ]
 }
